@@ -1,3 +1,4 @@
+from functools import reduce
 #Crea una función lambda que tome un número como argumento y devuelva su cuadrado.
 
 potencia = lambda x: x**2
@@ -58,9 +59,24 @@ nueva_lista = list(map(lambda x : x[0].split() ,lista_palabras))
 
 #Dada una lista de diccionarios con los alumnos y notas de un curso, calcular el promedio del curso. Puede usar una lista como la siguiente:
 
-# lista_dic = [{'nombre': 'Hector', 'nota': 70}, {'nombre': 'Juan', 'nota': 45}, {'nombre': 'Maria', 'nota': 75}, {'nombre': 'Pedro', 'nota': 80}, {'nombre': 'Ana', 'nota': 60},  {'nombre': 'Florencia', 'nota': 95}]
+lista_dic = [{'nombre': 'Hector', 'nota': 70}, {'nombre': 'Juan', 'nota': 45}, {'nombre': 'Maria', 'nota': 75}, {'nombre': 'Pedro', 'nota': 80}, {'nombre': 'Ana', 'nota': 60},  {'nombre': 'Florencia', 'nota': 95}]
 
-# promedio = note for note in 
+promedio = [notas['nota'] for notas in lista_dic] 
+promedioGeneral = sum(promedio) / len(promedio)
 
-# print(promedio)
+#Encuentra el número mayor de una lista utilizando reduce.
+
+list_num = [4,6,4,7,85,21,45,105,688,1004,23,4,6,7,54,34,78000]
+
+max_num = reduce(lambda x,y: x if x > y else y,list_num)
+print(max_num)
+
+#Utilice reduce para concatenar una lista de cadenas en una sola cadena
+
+lst_cadenas = ['hola','como','estas','?']
+
+concat = reduce(lambda x,y: x + " " + y,lst_cadenas)
+print(concat)
+
+#Filtrar una lista de diccionarios por una condición. Ej: filtrar la lista del punto 10 para obtener notas de los alumnos aprobados.
 
